@@ -1,0 +1,5 @@
+<h3>記事一覧</h3>
+<li *ngFor="let article of article">
+  <a [routerLink]="[article._id]">{{ article.title |json }}</a>
+</li>
+<!-- <app-article-detail></app-article-detail> -->
