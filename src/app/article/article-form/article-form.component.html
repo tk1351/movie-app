@@ -1,1 +1,14 @@
-<p>article-form works!</p>
+<h3>記事投稿</h3>
+<form #articleForm="ngForm" (ngSubmit)="post(articleForm)">
+  <label>タイトル</label>
+  <input ngModel name="title" type="text" required>
+
+  <label>本文</label>
+  <input ngModel name="text" type="text" required>
+
+  <button [disabled]="!articleForm.valid" type="submit">投稿</button>
+</form>
+
+<button>
+  <a [routerLink]="['/article']">記事一覧</a>
+</button>

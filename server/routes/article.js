@@ -25,7 +25,7 @@ router.post('', (req, res) => {
   
   ArticlePost.title = req.body.title
   ArticlePost.text = req.body.text
-  ArticlePost.created_at = req.body.created_at
+  ArticlePost.created = req.body.created
 
   ArticlePost.save(function(err) {
     if(err) {

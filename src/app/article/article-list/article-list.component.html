@@ -2,4 +2,6 @@
 <li *ngFor="let article of article">
   <a [routerLink]="[article._id]">{{ article.title |json }}</a>
 </li>
-<!-- <app-article-detail></app-article-detail> -->
+<button>
+  <a [routerLink]="['/article-form']">記事投稿</a>
+</button>
