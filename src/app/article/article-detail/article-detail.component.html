@@ -1,2 +1,8 @@
 <h3>記事詳細</h3>
-<p>{{ article.title | json }}</p>
+<p>{{ article.created }}</p>
+<p>{{ article.title }}</p>
+<p>{{ article.text }}</p>
+<button>
+  <a [routerLink]="['/article']">記事一覧</a>
+</button>
+<button (click)="delete()">削除</button>

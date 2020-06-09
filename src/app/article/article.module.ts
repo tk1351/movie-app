@@ -6,16 +6,17 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleService } from './shared/article.service'
 import { ArticleComponent } from './article.component';
+import { FormsModule }   from '@angular/forms';
 
 const routes: Routes = [
   { 
     path: 'article', component: ArticleComponent,
     children: [
       { path: '', component: ArticleListComponent },
-      { path: ':id', component: ArticleDetailComponent },
-      { path: 'detail', component: ArticleDetailComponent }
+      { path: ':id', component: ArticleDetailComponent }
     ]
-  }
+  },
+  { path: 'article-form', component: ArticleFormComponent }
 ]
 
 @NgModule({
@@ -27,7 +28,8 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [
     ArticleService

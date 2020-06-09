@@ -25,7 +25,15 @@ export class ArticleService {
 
   getArticleById(id: string): Observable<any> {
     const url = `${this.articleUrl}/${id}`
-    console.log(this.http.get(url))
     return this.http.get(url)
+  }
+
+  postArticle(articleData: any): Observable<any> {
+    return this.http.post(this.articleUrl, articleData)
+  }
+
+  deleteArticleById(id: string): Observable<any> {
+    const url = `${this.articleUrl}/${id}`
+    return this.http.delete(url, httpOptions)
   }
 }

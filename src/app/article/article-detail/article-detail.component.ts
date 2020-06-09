@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Location } from '@angular/common'
 import { ArticleService } from '../shared/article.service';
 
@@ -10,10 +10,12 @@ import { ArticleService } from '../shared/article.service';
 })
 export class ArticleDetailComponent implements OnInit {
   article
+  value = ''
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
+    private router: Router,
     private articleService: ArticleService
   ) { }
 
@@ -33,6 +35,13 @@ export class ArticleDetailComponent implements OnInit {
           console.log('失敗')
         }
       )
+    })
+  }
+
+  delete(): void {
+    this.route.paramMap.subscribe(params => {
+      this.articleService.deleteArticleById(params.get('id'))
+        .subscribe(() => this.router.navigate(['/article']))
     })
   }
 

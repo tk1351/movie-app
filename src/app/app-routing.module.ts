@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleModule } from './article/article.module';
+import { AuthModule } from './auth/auth.module';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'article', pathMatch: 'full'}
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    ArticleModule
+    ArticleModule,
+    AuthModule
   ],
   exports: [RouterModule]
 })
