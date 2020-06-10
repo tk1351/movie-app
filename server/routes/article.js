@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Article = require('../model/article')
+const UserCtrl = require('../controllers/user')
 
 router.get('', (req, res) => {
   Article.find({}, function(err, foundArticle) {
@@ -8,7 +9,11 @@ router.get('', (req, res) => {
   })
 })
 
-router.get('/:articleId', (req, res) => {
+router.get('/secret', UserCtrl.authMiddleware, (req, res) => {
+  return res.json({"secret": true})
+})
+
+router.get('/:articleId', UserCtrl.authMiddleware, (req, res) => {
   const articleId = req.params.articleId
   Article.findById(articleId, function(err, foundArticle) {
     if(err) {

@@ -7,6 +7,7 @@ import { ArticleFormComponent } from './article-form/article-form.component';
 import { ArticleService } from './shared/article.service'
 import { ArticleComponent } from './article.component';
 import { FormsModule }   from '@angular/forms';
+import { AuthGuard } from '../auth/shared/auth.guard';
 
 const routes: Routes = [
   { 
@@ -16,7 +17,7 @@ const routes: Routes = [
       { path: ':id', component: ArticleDetailComponent }
     ]
   },
-  { path: 'article-form', component: ArticleFormComponent }
+  { path: 'article-form', component: ArticleFormComponent ,canActivate: [AuthGuard]}
 ]
 
 @NgModule({
