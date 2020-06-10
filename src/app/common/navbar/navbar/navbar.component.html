@@ -17,13 +17,22 @@
     </ul>
   </div>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav  ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/register']">新規登録</a>
-      </li>
-    </ul>
+    <ng-container *ngIf="auth.isAuthenticated()">
+      <ul class="navbar-nav  ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="logout()">Logout <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="!auth.isAuthenticated()">
+      <ul class="navbar-nav  ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/register']">新規登録</a>
+        </li>
+      </ul>
+    </ng-container>
   </div>
 </nav>
