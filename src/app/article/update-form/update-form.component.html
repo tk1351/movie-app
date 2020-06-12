@@ -1,0 +1,17 @@
+<h3>記事編集</h3>
+<form #updateForm="ngForm" (ngSubmit)="put(updateForm)">
+  <div>
+    <label>タイトル</label>
+    <input ngModel name="title" type="text">
+  </div>
+  <div>
+    <label>本文</label>
+    <textarea ngModel name="text" type="text"></textarea>
+  </div>
+
+  <button [disabled]="!updateForm.valid" type="submit">編集</button>
+</form>
+
+<button>
+  <a [routerLink]="['/article']">記事一覧</a>
+</button>

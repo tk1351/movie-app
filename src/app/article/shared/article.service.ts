@@ -18,7 +18,7 @@ export class ArticleService {
   ) { }
 
   private articleUrl = 'api/v1/article'
-
+  
   getArticle(): Observable<any> {
     return this.http.get(this.articleUrl)
   }
@@ -35,5 +35,10 @@ export class ArticleService {
   deleteArticleById(id: string): Observable<any> {
     const url = `${this.articleUrl}/${id}`
     return this.http.delete(url, httpOptions)
+  }
+
+  updateArticleById(id: string, article: {title: string, text: string}): Observable<any> {
+    const url = `${this.articleUrl}/${id}`
+    return this.http.put(url, article,  httpOptions)
   }
 }

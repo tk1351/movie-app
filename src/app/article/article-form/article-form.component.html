@@ -4,7 +4,7 @@
   <input ngModel name="title" type="text" required>
 
   <label>本文</label>
-  <input ngModel name="text" type="text" required>
+  <textarea ngModel name="text" type="text" required></textarea>
 
   <button [disabled]="!articleForm.valid" type="submit">投稿</button>
 </form>

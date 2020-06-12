@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
-import { Location } from '@angular/common'
 import { ArticleService } from '../shared/article.service';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -10,13 +10,14 @@ import { ArticleService } from '../shared/article.service';
 })
 export class ArticleDetailComponent implements OnInit {
   article
+  updateform
   value = ''
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
     private router: Router,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {

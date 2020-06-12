@@ -1,7 +1,18 @@
 <h3>記事一覧</h3>
-<li *ngFor="let article of article">
-  <a [routerLink]="[article._id]">{{ article.title |json }}</a>
-</li>
-<button>
-  <a [routerLink]="['/article-form']">記事投稿</a>
-</button>
+<div>
+  <li *ngFor="let article of article | paginate: { itemsPerPage: 3, currentPage: page }">
+    <a [routerLink]="[article._id]">{{ article.title }}</a>
+  </li>
+
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+<div>
+
+</div>
+<ng-container *ngIf="auth.isAuthenticated()">
+  <div>
+    <button>
+      <a [routerLink]="['/article-form']">記事投稿</a>
+    </button>
+  </div>
+</ng-container>

@@ -129,6 +129,7 @@
   },
   "defaultProject": "movie-app",
   "cli": {
-    "analytics": "518a260e-9670-49b9-94c4-04f7a8dd2401"
+    "analytics": "518a260e-9670-49b9-94c4-04f7a8dd2401",
+    "defaultCollection": "@ngrx/schematics"
   }
 }

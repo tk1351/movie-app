@@ -4,6 +4,18 @@ const User = require('../model/user')
 const jwt = require('jsonwebtoken')
 const config = require('../config/dev')
 
+router.get('/:usersId',  (req, res) => {
+  const usersId = req.params.usersId
+  Article.findById(usersId, function(err, foundUsers) {
+    if(err) {
+      return res.status(422).send(
+        { errors: [{ title: 'Error', detail: 'User not found' }]}
+      )
+    }
+    return res.json(foundUsers)
+  })
+})
+
 router.post('/register', (req, res) => {
   const { username, email, password, confirmPassword } = req.body
   
