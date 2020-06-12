@@ -8,6 +8,9 @@ import { ArticleService } from './shared/article.service'
 import { ArticleComponent } from './article.component';
 import { FormsModule }   from '@angular/forms';
 import { AuthGuard } from '../auth/shared/auth.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdateFormComponent } from './update-form/update-form.component'
+import { AuthModule } from '../auth/auth.module';
 
 const routes: Routes = [
   { 
@@ -17,7 +20,12 @@ const routes: Routes = [
       { path: ':id', component: ArticleDetailComponent }
     ]
   },
-  { path: 'article-form', component: ArticleFormComponent ,canActivate: [AuthGuard]}
+  { path: 'article-form', component: ArticleFormComponent ,canActivate: [AuthGuard]},
+  { path: 'update-form', component: ArticleComponent,
+    children: [
+      { path: ':id', component: UpdateFormComponent, canActivate: [AuthGuard] }
+    ]
+  }
 ]
 
 @NgModule({
@@ -25,12 +33,15 @@ const routes: Routes = [
     ArticleComponent,
     ArticleListComponent,
     ArticleDetailComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    UpdateFormComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+    AuthModule
   ],
   providers: [
     ArticleService
