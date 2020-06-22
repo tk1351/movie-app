@@ -1,6 +1,8 @@
-<ng-container *ngIf="auth.isAuthenticated()">
-  <p>ようこそ {{ users }}さん</p>
-</ng-container>
-<ng-container *ngIf="!auth.isAuthenticated()">
-  <p>ログインしてください</p>
-</ng-container>
+<div class="container">
+  <ng-container *ngIf="auth.isAuthenticated()">
+    <h4>ようこそ {{ users }}さん</h4>
+  </ng-container>
+  <ng-container *ngIf="!auth.isAuthenticated()">
+    <h4>ログインしてください</h4>
+  </ng-container>
+</div>

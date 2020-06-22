@@ -20,7 +20,8 @@ const UserSchema = new Schema({
     required: true, 
     max:[30, 'パスワードは最大30文字です。'], 
     min: [5, 'パスワードは最小5文字です。']
-  }
+  },
+  role: { type: String, required: true }
 });
 
 UserSchema.methods.hasSamePassword = function(inputPassword) {

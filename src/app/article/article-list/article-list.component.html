@@ -1,18 +1,13 @@
-<h3>記事一覧</h3>
-<div>
-  <li *ngFor="let article of article | paginate: { itemsPerPage: 3, currentPage: page }">
-    <a [routerLink]="[article._id]">{{ article.title }}</a>
-  </li>
-
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
-</div>
-<div>
-
-</div>
-<ng-container *ngIf="auth.isAuthenticated()">
+<div class="container">
+  <h3>記事一覧</h3>
   <div>
-    <button>
-      <a [routerLink]="['/article-form']">記事投稿</a>
-    </button>
+    <ul class="list-group">
+      <li *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: page }" class="list-group-item">
+        <a [routerLink]="[article._id]">{{ article.title }}</a>
+        <small class="d-flex w-100 justify-content-between">{{ article.created | date: "yyyy/MM/dd" }}</small>
+      </li>
+    </ul>
+  
+    <pagination-controls (pageChange)="page = $event" class="pagination justify-content-center"></pagination-controls>
   </div>
-</ng-container>
+</div>

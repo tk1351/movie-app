@@ -7,7 +7,6 @@ import { MapModule } from './map/map.module'
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full'}
   { path: '', component: HomeComponent }
 ];
 

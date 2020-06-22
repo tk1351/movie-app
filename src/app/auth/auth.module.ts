@@ -8,16 +8,22 @@ import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 import { TokenInterceptor } from './shared/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/:id', component: UserDetailComponent, canActivate: [AuthGuard] },
 ]
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminComponent,
+    UserDetailComponent
   ],
   imports: [
     RouterModule.forChild(routes),

@@ -1,4 +1,13 @@
-<h3>映画館マップ</h3>
-<div>
-  <agm-map [longitude]="135" [latitude]="35" [zoom]="16"></agm-map>
+<div class="container">
+  <h3>映画館マップ</h3>
+  <div>
+    <agm-map [longitude]="lng" [latitude]="lat" [zoom]="zoom">
+      <agm-marker *ngFor="let movieMap of movieMaps" longitude={{movieMap.lng}} latitude={{movieMap.lat}}>
+        <agm-info-window [disableAutoPan]="true">
+          {{ movieMap.theater }}<br>
+          <a href="{{ movieMap.url }}" target="_blank">{{ movieMap.url }}</a>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
 </div>

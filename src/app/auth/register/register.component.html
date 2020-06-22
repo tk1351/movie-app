@@ -1,58 +1,67 @@
-<h3>新規登録</h3>
-<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
-  <div>
-    <label>ユーザー名</label>
-    <input 
-    ngModel 
-    name="username" 
-    type="text" 
-    placeholder="ユーザー名" 
-    required>
+<ng-container *ngIf="auth.isAuthenticated() && auth.isSystemAdmin()">
+  <div class="container">
+    <h3>新規登録</h3>
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="form-group">
+        <label>ユーザー名</label>
+        <input 
+        ngModel 
+        name="username" 
+        type="text" 
+        placeholder="ユーザー名" 
+        class="form-control"
+        required>
+      </div>
+    
+      <div class="form-group">
+        <label>Email</label>
+        <input 
+        ngModel 
+        name="email"
+        type="text" 
+        placeholder="Email"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+        class="form-control"
+        aria-describedby="emailHelp"
+        required>
+      </div>
+      
+      <div class="form-group">
+        <label>パスワード</label>
+        <input 
+        ngModel
+        name="password"
+        type="text" 
+        placeholder="パスワード"
+        class="form-control"
+        required>
+      </div>
+    
+      <div class="form-group">
+        <label>パスワード（確認用）</label>
+        <input 
+        ngModel
+        name="confirmPassword"
+        type="text" 
+        placeholder="パスワード（確認用）"
+        class="form-control"
+        required>
+      </div>
+    
+      <div>
+        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary">登録</button>
+      </div>
+    
+    </form>
+    <br>
+    <div *ngIf="errors && errors.length>0"
+      class="alert alert-danger" role="alert">
+    <p *ngFor="let error of errors">{{ error.detail }}</p>
+    </div>
+    <div>
+      <button class="btn btn-outline-primary">
+        <a [routerLink]="['/login']">Loginはこちら</a>
+      </button>
+    </div>
   </div>
-
-  <div>
-    <label>Email</label>
-    <input 
-    ngModel 
-    name="email"
-    type="text" 
-    placeholder="Email"
-    pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-    required>
-  </div>
-  
-  <div>
-    <label>パスワード</label>
-    <input 
-    ngModel
-    name="password"
-    type="text" 
-    placeholder="パスワード"
-    required>
-  </div>
-
-  <div>
-    <label>パスワード（確認用）</label>
-    <input 
-    ngModel
-    name="confirmPassword"
-    type="text" 
-    placeholder="パスワード（確認用）"
-    required>
-  </div>
-
-  <div>
-    <button [disabled]="!registerForm.valid" type="submit">登録</button>
-  </div>
-
-</form>
-<br>
-<div *ngIf="errors && errors.length>0"
-  class="alert alert-danger">
-<p *ngFor="let error of errors">{{ error.detail }}</p>
-</div>
-<div>
-  <button>
-    <a [routerLink]="['/login']">Loginはこちら</a>
-  </button>
-</div>
+</ng-container>

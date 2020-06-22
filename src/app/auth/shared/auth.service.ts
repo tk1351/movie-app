@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
@@ -12,6 +12,12 @@ class DecodedToken {
   userId: string = ''
   username: string = ''
   exp: number = 0
+}
+
+const httpOptions = {
+  headers: new HttpHeaders( {
+    'Content-Type':  'application/json'
+  })
 }
 
 @Injectable({
@@ -27,6 +33,7 @@ export class AuthService {
     this.decodedToken = JSON.parse(localStorage.getItem('app-meta')) || new DecodedToken
   }
 
+  private usersUrl = '/api/v1/users'
   private registerUrl = '/api/v1/users/register'
   private loginUrl = '/api/v1/users/login'
 
@@ -36,6 +43,14 @@ export class AuthService {
 
   isAuthenticated() {
     return moment().isBefore(moment.unix(this.decodedToken.exp))
+  }
+
+  isEditor() {
+    return this.decodedToken.role === "editor"
+  }
+
+  isSystemAdmin() {
+    return this.decodedToken.role === "systemAdmin"
   }
 
   registerUser(userData: any): Observable<any> {
@@ -58,5 +73,19 @@ export class AuthService {
     localStorage.removeItem('app-meta')
     this.decodedToken = new DecodedToken
     this.router.navigate(['/'])
+  }
+
+  getUsers() {
+    return this.http.get(this.usersUrl)
+  }
+
+  getUserById(id: string): Observable<any> {
+    const url = `${this.usersUrl}/${id}`
+    return this.http.get(url)
+  }
+
+  deleteUserById(id: string): Observable<any> {
+    const url = `${this.usersUrl}/${id}`
+    return this.http.delete(url, httpOptions)
   }
 }

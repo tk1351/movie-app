@@ -29,6 +29,7 @@ router.post('', UserCtrl.authMiddleware, (req, res) => {
   ArticlePost.title = req.body.title
   ArticlePost.text = req.body.text
   ArticlePost.created = req.body.created
+  ArticlePost.uid = req.body.uid
 
   ArticlePost.save(function(err) {
     if(err) {
