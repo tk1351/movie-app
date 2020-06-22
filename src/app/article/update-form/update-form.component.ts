@@ -18,6 +18,7 @@ export class UpdateFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.get()
   }
 
   put(updateForm): void {

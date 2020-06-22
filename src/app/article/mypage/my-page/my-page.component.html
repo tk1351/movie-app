@@ -1,0 +1,15 @@
+<ng-container *ngIf="auth.isAuthenticated() && auth.isEditor()">
+  <div class="container">
+    <h3>{{ users }}さんの記事一覧</h3>
+    <div>
+      <ul class="list-group">
+        <li *ngFor="let myArticle of myArticles | paginate: { itemsPerPage: 3, currentPage: page }" class="list-group-item">
+          <a [routerLink]="[myArticle._id]">{{ myArticle.title }}</a>
+          <small class="d-flex w-100 justify-content-between">{{ myArticle.created | date: "yyyy/MM/dd" }}</small>
+        </li>
+      </ul>
+    
+      <pagination-controls (pageChange)="page = $event" class="pagination justify-content-center"></pagination-controls>
+    </div>
+  </div>
+</ng-container>

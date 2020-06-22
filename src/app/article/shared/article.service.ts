@@ -23,12 +23,16 @@ export class ArticleService {
     return this.http.get(this.articleUrl)
   }
 
+  getUsers(): Observable<any> {
+    return this.http.get('api/v1/users')
+  }
+
   getArticleById(id: string): Observable<any> {
     const url = `${this.articleUrl}/${id}`
     return this.http.get(url)
   }
 
-  postArticle(articleData: any): Observable<any> {
+  postArticle(articleData: string): Observable<any> {
     return this.http.post(this.articleUrl, articleData)
   }
 

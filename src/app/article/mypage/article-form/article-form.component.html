@@ -1,0 +1,18 @@
+<ng-container *ngIf="auth.isAuthenticated() && auth.isEditor()">
+  <div class="container">
+    <h3>記事投稿</h3>
+    <form #articleForm="ngForm" (ngSubmit)="post(articleForm)">
+      <label>タイトル</label>
+      <input ngModel name="title" type="text" class="form-control" required>
+    
+      <label>本文</label>
+      <textarea ngModel name="text" type="text"  class="form-control"  rows="15" required></textarea>
+    
+      <button [disabled]="!articleForm.valid" type="submit" class="btn btn-primary">投稿</button>
+    </form>
+    
+    <button class="btn btn-outline-primary">
+      <a [routerLink]="['/article']" >記事一覧</a>
+    </button>
+  </div>
+</ng-container>

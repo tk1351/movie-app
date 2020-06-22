@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    public auth: AuthService,
     private router: Router
   ) { }
 
@@ -20,10 +21,12 @@ export class RegisterComponent implements OnInit {
   }
 
   register(registerForm) {
-    this.authService.registerUser(registerForm.value).subscribe(
+    const registerBody = {...registerForm.value, role: 'editor'}
+
+    this.authService.registerUser(registerBody).subscribe(
       (result) => {
         console.log("success")
-        this.router.navigate(['/login'])
+        this.router.navigate(['/admin'])
       },
       (err: HttpErrorResponse) => {
         console.error(err)

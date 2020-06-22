@@ -8,7 +8,8 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent implements OnInit {
-  article
+  articles
+
   page: number = 1
   data: Array<any>
 
@@ -24,7 +25,7 @@ export class ArticleListComponent implements OnInit {
 
   get():void {
     this.articleService.getArticle()
-      .subscribe(article => this.article = article)
+      .subscribe(article => this.articles = article)
   }
 
 }

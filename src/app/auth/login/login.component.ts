@@ -10,7 +10,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   errors: any = []
-  
 
   constructor(
     private authService: AuthService,
@@ -24,6 +23,8 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(loginForm.value).subscribe(
       (token) => {
         console.log(token)
+        localStorage.setItem('username', decodeJwt(token).username);
+        localStorage.setItem('userId', decodeJwt(token).userId);
         this.router.navigate(['/'])
       },
       (err: HttpErrorResponse) => {
@@ -32,5 +33,14 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+  
 
 }
+
+const decodeJwt = (token) => {                                        
+  const base64Url = token.split('.')[1];                             
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');    
+  return JSON.parse(decodeURIComponent(escape(window.atob(base64))));
+};
+
+     

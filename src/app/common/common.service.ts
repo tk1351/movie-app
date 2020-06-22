@@ -17,10 +17,4 @@ export class CommonService {
     private http: HttpClient
   ) { }
 
-  private usersUrl = 'api/v1/users'
-
-  getUsername(id: string): Observable<any> {
-    const url = `${this.usersUrl}/${id}`
-    return this.http.get(url)
-  }
 }

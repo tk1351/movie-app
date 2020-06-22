@@ -1,0 +1,11 @@
+<ng-container *ngIf="auth.isAuthenticated() && auth.isSystemAdmin()">
+  <div class="container">
+    <h3>ユーザー名：{{ user.username }}</h3>
+  
+    <div>
+      <button (click)="delete()" class="btn btn-outline-primary">
+        削除
+      </button>
+    </div>
+  </div>
+</ng-container>

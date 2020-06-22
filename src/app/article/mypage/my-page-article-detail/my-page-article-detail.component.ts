@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
-import { ArticleService } from '../shared/article.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ArticleService } from '../../shared/article.service';
 import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
-  selector: 'app-article-detail',
-  templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.scss']
+  selector: 'app-my-page-article-detail',
+  templateUrl: './my-page-article-detail.component.html',
+  styleUrls: ['./my-page-article-detail.component.scss']
 })
-export class ArticleDetailComponent implements OnInit {
+export class MyPageArticleDetailComponent implements OnInit {
   article
-  updateform
-  users
-  value = ''
-  username
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +20,6 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.get()
-    this.getUser()
   }
 
   get(): void {
@@ -46,13 +41,6 @@ export class ArticleDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.articleService.deleteArticleById(params.get('id'))
         .subscribe(() => this.router.navigate(['/article']))
-    })
-  }
-
-  getUser(): void {
-    this.articleService.getUsers()
-      .subscribe(users => {
-      this.username = users.filter(user => user._id === this.article.uid)[0].username
     })
   }
 

@@ -5,7 +5,7 @@ const ArticleSchema = new Schema({
   title: { type: String, required: true },
   text: { type: String, required: true },
   created: { type: Date, default: Date.now },
-  image: String
+  uid: { type: String, required: true }
 });
 
 module.exports = mongoose.model('article', ArticleSchema)

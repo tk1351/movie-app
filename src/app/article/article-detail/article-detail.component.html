@@ -1,13 +1,12 @@
-<h3>記事詳細</h3>
-<p>{{ article.created | date: "yyyy/MM/dd" }}</p>
-<p>{{ article.title }}</p>
-<p>{{ article.text }}</p>
-<button>
-  <a [routerLink]="['/article']">記事一覧</a>
-</button>
-<ng-container *ngIf="auth.isAuthenticated()">
-  <button>
-    <a routerLink="/update-form/{{article._id}}">編集</a>
-  </button>
-  <button (click)="delete()">削除</button>
+<ng-container>
+  <div class="container">
+    <h3>記事詳細</h3>
+    <p>投稿者：{{ username }}</p>
+    <p>{{ article.created | date: "yyyy/MM/dd" }}</p>
+    <p>{{ article.title }}</p>
+    <p>{{ article.text }}</p>
+    <button class="btn btn-outline-primary">
+      <a [routerLink]="['/article']">記事一覧</a>
+    </button>
+  </div>
 </ng-container>
