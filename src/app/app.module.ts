@@ -7,6 +7,7 @@ import { NavbarComponent } from './common/navbar/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './common/home/home.component';
 import { MapComponent } from './map/map.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MapComponent } from './map/map.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

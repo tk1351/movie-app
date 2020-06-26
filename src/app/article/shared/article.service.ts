@@ -18,6 +18,7 @@ export class ArticleService {
   ) { }
 
   private articleUrl = 'api/v1/article'
+  private searchUrl = 'api/v1/search/articleSearch'
   
   getArticle(): Observable<any> {
     return this.http.get(this.articleUrl)
@@ -44,5 +45,9 @@ export class ArticleService {
   updateArticleById(id: string, article: {title: string, text: string}): Observable<any> {
     const url = `${this.articleUrl}/${id}`
     return this.http.put(url, article,  httpOptions)
+  }
+
+  searchArticle(searchData: string): Observable<any> {
+    return this.http.post(this.searchUrl, searchData)
   }
 }
