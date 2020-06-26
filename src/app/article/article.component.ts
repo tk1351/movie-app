@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
+  static articles(articles: any) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor() { }
 

@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 
 const articleRoutes = require('./routes/article')
 const usersRoutes = require('./routes/users')
+const searchRoutes = require('./routes/search')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -24,5 +25,6 @@ db.once('open', function() {
 
 app.use('/api/v1/article', articleRoutes)
 app.use('/api/v1/users', usersRoutes)
+app.use('/api/v1/search', searchRoutes)
 
 app.listen(3000, () => console.log('I am running'))
