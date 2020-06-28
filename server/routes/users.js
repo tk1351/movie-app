@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../model/user')
 const jwt = require('jsonwebtoken')
-const config = require('../config/dev')
+const config = require('../config/')
 
 router.get('', (req, res) => {
   User.find({}, function(err, foundUser) {
