@@ -28,7 +28,7 @@ app.use('/api/v1/article', articleRoutes)
 app.use('/api/v1/users', usersRoutes)
 app.use('/api/v1/search', searchRoutes)
 
-if(process.env.NODE_ENV === 'prod'){
+if(process.env.NODE_ENV === 'production'){
   const appPath = path.join(__dirname,'..','dist','movie-app')
   app.use(express.static(appPath))
   app.get('*', function(req,res){
