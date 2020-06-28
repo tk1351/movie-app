@@ -5,7 +5,6 @@ import { FormsModule }   from '@angular/forms';
 import { MapComponent } from './map.component';
 import { MapApiComponent } from './map-api/map-api.component';
 import { AgmCoreModule } from '@agm/core';
-import { env } from '../map/map-api';
 
 const routes: Routes = [
   { path:'map', component: MapComponent,
@@ -23,7 +22,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: env.key
+      apiKey: process.env.MAP_KEY
     })
   ],
   providers: [
