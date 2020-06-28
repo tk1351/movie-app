@@ -22,7 +22,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: process.env.MAP_KEY
+      apiKey: 'AIzaSyB9HAePhm7YkDSIsCd08sZF6YxCAL0P_Qc'
     })
   ],
   providers: [
