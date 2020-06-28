@@ -36,4 +36,6 @@ app.use('/api/v1/search', searchRoutes)
 })
 //}
 
-app.listen(3000, () => console.log('I am running'))
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => console.log('I am running'))
