@@ -4,6 +4,7 @@ import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './common/home/home.component';
 import { MapModule } from './map/map.module'
+import { MovieModule } from './movie/movie.module';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ArticleModule,
     MapModule,
+    MovieModule,
     AuthModule
   ],
   exports: [RouterModule]

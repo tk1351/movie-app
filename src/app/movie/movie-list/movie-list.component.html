@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>上映中映画</h3>
+  <div class="row">
+    <div *ngFor="let movie of movies.results | paginate: { itemsPerPage: 6, currentPage: page }">
+        <h6>{{movie.title}}</h6>
+        <a routerLink="/detail/{{movie.id}}">
+          <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}">
+        </a>
+        <h6>{{movie.release_date}}</h6>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="page = $event" class="pagination justify-content-center"></pagination-controls>
+</div>

@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
   errors: any = []
+  hide = true
 
   constructor(
     private authService: AuthService,

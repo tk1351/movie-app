@@ -30,6 +30,65 @@ router.delete('/:userId', (req, res) => {
     })
 })
 
+//Emailが一致する場合×
+router.put('/userInfo/:userId', (req, res) => {
+  const userId = req.params.userId
+  User.findById(userId, function(err, foundUser) {
+    if(err) {
+      res.send(err)
+    } else {
+      foundUser.username = req.body.username
+      foundUser.email = req.body.email
+
+      foundUser.save(function(err) {
+        if(err) {
+          res.send(err)
+        } else {
+          res.json({ update: 'success' })
+        }
+      })
+    }
+  })
+})
+
+router.put('/password/:userId', (req, res) => {
+  const { password, newPassword, confirmNewPassword } = req.body
+  const userId = req.params.userId
+
+  if(!password) {
+    return res.status(422).send({errors: [{title: 'password error', detail: '現在のパスワードを入力してください'}]})
+  }
+  if(!newPassword) {
+    return res.status(422).send({errors: [{title: 'password error', detail: '新しいパスワードを入力してください'}]})
+  }
+  if(!confirmNewPassword) {
+    return res.status(422).send({errors: [{title: 'password error', detail: '確認用パスワードを入力してください'}]})
+  }
+  if(newPassword !== confirmNewPassword) {
+    return res.status(422).send({errors: [{title: 'password error', detail: 'パスワードを確認してください'}]})
+  }
+  User.findOne({_id: userId}, function(err, foundUser) {
+    if(err) {
+      return res.status(422).send({errors: [{title: 'user error', detail: 'エラー発生'}]})
+    }
+    if(!foundUser.hasSamePassword(password)) {
+      return res.status(422).send({errors: [{title: 'user error', detail: 'パスワードが存在しません'}]})
+    } else {
+      foundUser.password = newPassword
+  
+      foundUser.save(function(err) {
+        if(err) {
+          res.send(err)
+        } else {
+          res.json({ update: 'success' })
+        }
+      })
+    }
+  })
+  
+
+})
+
 router.post('/register', (req, res) => {
   const { username, email, password, confirmPassword, role } = req.body
   

@@ -6,3 +6,17 @@
     <h4>ログインしてください</h4>
   </ng-container>
 </div>
+
+<div class="container">
+  <h3>上映中映画</h3>
+  
+  <div class="row row-20">
+    <div *ngFor="let movie of movies.results" class="col-xs-3">
+        <h6>{{movie.title}}</h6>
+        <a routerLink="/detail/{{movie.id}}">
+          <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}">
+        </a>
+        <h6>{{movie.release_date}}</h6>
+      </div>
+    </div>
+</div>

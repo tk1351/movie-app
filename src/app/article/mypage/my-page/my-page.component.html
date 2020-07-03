@@ -11,5 +11,11 @@
     
       <pagination-controls (pageChange)="page = $event" class="pagination justify-content-center"></pagination-controls>
     </div>
+    <button class="btn btn-outline-primary">
+      <a routerLink="/edit-profile/{{userId}}">ユーザー情報変更</a>
+    </button>
+    <button class="btn btn-outline-primary">
+      <a routerLink="/edit-password/{{userId}}">パスワード変更</a>
+    </button>
   </div>
 </ng-container>
