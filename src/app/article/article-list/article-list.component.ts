@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../shared/article.service';
 import { AuthService } from 'src/app/auth/shared/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -16,8 +15,7 @@ export class ArticleListComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    public auth: AuthService,
-    private router: Router
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,10 +28,9 @@ export class ArticleListComponent implements OnInit {
       .subscribe(article => this.articles = article)
   }
 
-  search(searchForm) {
+  search(searchForm): void {
     this.articleService.searchArticle(searchForm.value).subscribe(
       (articles) => {
-        // console.log(articles)
         console.log(searchForm.value)
         this.articles = articles
       },

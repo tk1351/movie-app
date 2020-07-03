@@ -13,7 +13,6 @@ const httpOptions = {
 export class CommonService {
 
   constructor(
-    private http: HttpClient
   ) { }
 
 

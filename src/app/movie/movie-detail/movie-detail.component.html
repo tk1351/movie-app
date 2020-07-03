@@ -1,0 +1,30 @@
+<div class="container">
+  <div *ngIf="movie">
+    <h4>{{ movie.title }}</h4>
+    <img src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}">
+    <h4>{{ movie.overview }}</h4>
+  </div>
+  <div>
+    <h4>キャスト</h4>
+  </div>
+  <div class="row row-20">
+    <div *ngFor="let cast of casts" class="col-xs-4">
+      <p>{{ cast.name }}</p>
+      <img src="https://image.tmdb.org/t/p/w342{{cast.profile_path}}" width="200">
+    </div>
+  </div>
+  <div>
+    <h4>スタッフ</h4>
+  </div>
+  <div class="row row-20">
+    <div *ngFor="let crew of crews" class="col-xs-4">
+      <p>{{ crew.name }}</p>
+      <p>{{ crew.job }}</p>
+      <img src="https://image.tmdb.org/t/p/w342{{crew.profile_path}}" width="200">
+    </div>
+  </div>
+  
+  <div>
+    <button class="btn btn-outline-primary" (click)="goBack()">戻る</button>
+  </div>
+</div>

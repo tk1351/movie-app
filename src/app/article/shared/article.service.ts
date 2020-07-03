@@ -19,6 +19,7 @@ export class ArticleService {
 
   private articleUrl = 'api/v1/article'
   private searchUrl = 'api/v1/search/articleSearch'
+  private userUrl = 'api/v1/users'
   
   getArticle(): Observable<any> {
     return this.http.get(this.articleUrl)
@@ -49,5 +50,20 @@ export class ArticleService {
 
   searchArticle(searchData: string): Observable<any> {
     return this.http.post(this.searchUrl, searchData)
+  }
+
+  editProfileById(id: string, profile: { username: string, email: string }): Observable<any> {
+    const url = `${this.userUrl}/userInfo/${id}`
+    return this.http.put(url, profile, httpOptions)
+  }
+
+  editPasswordById(id: string, password: string): Observable<any> {
+    const url = `${this.userUrl}/password/${id}`
+    return this.http.put(url, password, httpOptions)
+  }
+
+  getProfileById(id: string): Observable<any> {
+    const url = `${this.userUrl}/${id}`
+    return this.http.get(url)
   }
 }

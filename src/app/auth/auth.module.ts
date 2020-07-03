@@ -10,6 +10,9 @@ import { TokenInterceptor } from './shared/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,7 +31,10 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     AuthService,

@@ -2,30 +2,36 @@
   <h3>Login</h3>
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="form-group">
-      <label>Email</label>
-      <input 
-      ngModel
-      name="email"
-      type="text" 
-      placeholder="Email"
-      pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-      class="form-control"
-      aria-describedby="emailHelp"
-      required>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input 
+        matInput 
+        placeholder="movie@example.com" 
+        ngModel
+        name="email"
+        type="text"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+        class="form-control"
+        aria-describedby="emailHelp"
+        required>
+      </mat-form-field>
     </div>
     
     <div class="form-group">
-      <label>パスワード</label>
-      <input 
-      ngModel
-      name="password"
-      type="text" 
-      placeholder="パスワード"
-      class="form-control"
-      required>
+      <mat-form-field appearance="fill">
+        <mat-label>パスワード</mat-label>
+        <input 
+        matInput 
+        placeholder="パスワード" 
+        ngModel
+        name="password"
+        [type]="hide ? 'password' : 'text'"
+        class="form-control"
+        required>
+      </mat-form-field>
     </div>
   
-    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
+    <button [disabled]="!loginForm.valid" mat-raised-button color="primary" type="submit" class="btn btn-primary">Login</button>
   </form>
   <br>
   <div *ngIf="errors && errors.length>0"
@@ -34,7 +40,7 @@
   </div>
   <div>
     <button class="btn btn-outline-primary">
-      <a [routerLink]="['/register']" >新規登録はこちら</a>
+      <a [routerLink]="['/register']">新規登録はこちら</a>
     </button>
   </div>
 </div>

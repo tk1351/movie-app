@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   errors: any = []
+  hide = true
 
   constructor(
     private authService: AuthService,
@@ -22,7 +23,6 @@ export class LoginComponent implements OnInit {
   login(loginForm) {
     this.authService.loginUser(loginForm.value).subscribe(
       (token) => {
-        console.log(token)
         localStorage.setItem('username', decodeJwt(token).username);
         localStorage.setItem('userId', decodeJwt(token).userId);
         this.router.navigate(['/'])

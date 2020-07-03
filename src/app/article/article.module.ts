@@ -13,6 +13,11 @@ import { UpdateFormComponent } from './update-form/update-form.component'
 import { AuthModule } from '../auth/auth.module';
 import { MyPageComponent } from './mypage/my-page/my-page.component';
 import { MyPageArticleDetailComponent } from './mypage/my-page-article-detail/my-page-article-detail.component';
+import { EditProfileComponent } from './mypage/edit-profile/edit-profile.component';
+import { EditPasswordComponent } from './mypage/edit-password/edit-password.component';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button'
 
 const routes: Routes = [
   { 
@@ -33,6 +38,16 @@ const routes: Routes = [
       { path: '', component: MyPageComponent },
       { path: ':id', component: MyPageArticleDetailComponent },
     ]
+  },
+  { path: 'edit-profile', component: ArticleComponent,
+    children: [
+      { path: ':id', component: EditProfileComponent, canActivate: [AuthGuard] }
+    ]
+  },
+  { path: 'edit-password', component: ArticleComponent,
+    children: [
+      { path: ':id', component: EditPasswordComponent, canActivate: [AuthGuard] }
+    ]
   }
 ]
 
@@ -44,14 +59,19 @@ const routes: Routes = [
     ArticleFormComponent,
     UpdateFormComponent,
     MyPageComponent,
-    MyPageArticleDetailComponent
+    MyPageArticleDetailComponent,
+    EditProfileComponent,
+    EditPasswordComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
     NgxPaginationModule,
-    AuthModule
+    AuthModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     ArticleService

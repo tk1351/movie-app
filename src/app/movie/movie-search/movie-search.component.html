@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>映画検索</h3>
+  <div>
+    <form #query="ngForm" (ngSubmit)="search(query)">
+      <mat-form-field appearance="fill">
+        <mat-label>映画名</mat-label>
+        <input 
+        matInput
+        ngModel 
+        name="queryParam" 
+        type="text" 
+        placeholder="映画を検索" 
+        required>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">検索</button>
+    </form>
+  </div>
+  <h3>検索結果</h3>
+  <div class="row row-20">
+    <div *ngFor="let movie of movies.results" class="col-xs-3">
+        <h6>{{movie.title}}</h6>
+        <a routerLink="/detail/{{movie.id}}">
+          <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}">
+        </a>
+        <h6>{{movie.release_date}}</h6>
+      </div>
+    </div>
+
+</div>
