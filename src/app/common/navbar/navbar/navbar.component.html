@@ -27,7 +27,7 @@
       </ul>
     </div>
     <div>
-      <ul class="navbar-nav  ml-auto">
+      <ul class="navbar-nav  ml-auto collapse navbar-collapse">
         <li class="nav-item active">
           <a class="nav-link" (click)="logout()">Logout <span class="sr-only">(current)</span></a>
         </li>
@@ -62,7 +62,7 @@
       </ul>
     </div>
     <div>
-      <ul class="navbar-nav  ml-auto">
+      <ul class="navbar-nav  ml-auto collapse navbar-collapse">
         <li class="nav-item active">
           <a class="nav-link" (click)="logout()">Logout <span class="sr-only">(current)</span></a>
         </li>
@@ -74,7 +74,7 @@
 <ng-container *ngIf="!auth.isAuthenticated()">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" [routerLink]="['/']"><mat-icon>movie</mat-icon>Movie App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -89,12 +89,12 @@
           <a class="nav-link" [routerLink]="['/map']"><mat-icon>map</mat-icon>Map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/movie']"><mat-icon>movie</mat-icon>Movie</a>
+          <a class="nav-link" [routerLink]="['/movie']" (click)="removeItem()"><mat-icon>movie</mat-icon>Movie</a>
         </li>
       </ul>
     </div>
     <div>
-      <ul class="navbar-nav  ml-auto">
+      <ul class="navbar-nav  ml-auto collapse navbar-collapse" id="navbarNavDropdown">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/login']"><mat-icon>login</mat-icon>Login <span class="sr-only">(current)</span></a>
         </li>

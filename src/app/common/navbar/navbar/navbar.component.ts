@@ -24,4 +24,10 @@ export class NavbarComponent implements OnInit {
   logout(){
     this.auth.logout()
   }
+
+  removeItem(): void {
+    localStorage.removeItem('movies')
+    localStorage.removeItem('title')
+
+  }
 }

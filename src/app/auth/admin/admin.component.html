@@ -6,20 +6,18 @@
         <li *ngFor="let user of users" class="list-group-item">
           <p>ユーザー名：{{ user.username }}</p>
           <small class="d-flex w-100 justify-content-between">
-            <button class="ml-auto">
-               <a [routerLink]="[user._id]">削除</a>
-            </button>
+            <a [routerLink]="[user._id]" class="ml-auto">
+              <button mat-raised-button color="primary">削除</button>
+            </a>
           </small>
         </li>
       </ul>
     </div>
   
     <div>
-      <button class="btn btn-outline-primary">
       <a routerLink="/register">
-        新規登録
+        <button mat-raised-button color="primary">新規登録</button>
       </a>
-      </button>
     </div>
   </div>
 </ng-container>

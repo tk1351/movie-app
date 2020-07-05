@@ -5,14 +5,14 @@
     <p>{{ article.created | date: "yyyy/MM/dd" }}</p>
     <p>{{ article.title }}</p>
     <p>{{ article.text }}</p>
-    <button class="btn btn-outline-primary">
-      <a [routerLink]="['/my-page']">記事一覧</a>
-    </button>
+    <a [routerLink]="['/my-page']">
+      <button mat-raised-button color="primary">戻る</button>
+    </a>
     <ng-container *ngIf="auth.isAuthenticated()">
-      <button class="btn btn-outline-primary">
-        <a routerLink="/update-form/{{article._id}}">編集</a>
-      </button>
-      <button (click)="delete()" class="btn btn-outline-primary">削除</button>
+      <a routerLink="/update-form/{{article._id}}">
+        <button mat-raised-button color="primary">編集</button>
+      </a>
+      <button (click)="delete()" mat-raised-button color="primary">削除</button>
     </ng-container>
   </div>
 </ng-container>

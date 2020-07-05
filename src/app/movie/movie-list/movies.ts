@@ -1,4 +1,4 @@
-export class Movies {
+export interface Movies {
   results: {
     popularity: number;
     vote_count: number;
@@ -14,7 +14,7 @@ export class Movies {
     vote_average: number;
     overview: string;
     release_date: string;
-  }[];
+  }[]
   page: number;
   total_results: number;
   dates: {
