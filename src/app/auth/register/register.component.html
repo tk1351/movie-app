@@ -61,7 +61,7 @@
       </div>
     
       <div>
-        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary">登録</button>
+        <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary">登録</button>
       </div>
     
     </form>
@@ -69,11 +69,6 @@
     <div *ngIf="errors && errors.length>0"
       class="alert alert-danger" role="alert">
     <p *ngFor="let error of errors">{{ error.detail }}</p>
-    </div>
-    <div>
-      <button class="btn btn-outline-primary">
-        <a [routerLink]="['/login']">Loginはこちら</a>
-      </button>
     </div>
   </div>
 </ng-container>

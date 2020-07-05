@@ -30,6 +30,9 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled'
+    }),
     CommonModule,
     FormsModule,
     AuthModule,

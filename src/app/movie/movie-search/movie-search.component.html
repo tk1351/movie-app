@@ -9,7 +9,7 @@
         ngModel 
         name="queryParam" 
         type="text" 
-        placeholder="映画を検索" 
+        [(ngModel)]="queryParam"
         required>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">検索</button>

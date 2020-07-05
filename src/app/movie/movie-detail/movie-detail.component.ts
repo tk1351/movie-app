@@ -4,18 +4,19 @@ import { Movie } from './movie';
 import { ActivatedRoute } from '@angular/router';
 import { Movies } from '../movie-list/movies';
 import { Location } from '@angular/common';
-import { MovieCredits } from './movie.credits';
+import { MovieCast, MovieCrew } from './movie.credits';
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
+
 export class MovieDetailComponent implements OnInit {
   movie: Movie
   movies: Movies
-  casts: MovieCredits
-  crews
+  casts: MovieCast[]
+  crews: MovieCrew[]
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +28,6 @@ export class MovieDetailComponent implements OnInit {
     this.get()
   }
 
-  // id: number
   get(): void {
     this.route.paramMap.subscribe(params => {
       const id = +this.route.snapshot.paramMap.get('id')

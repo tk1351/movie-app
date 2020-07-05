@@ -10,10 +10,10 @@
       <textarea ngModel name="text" type="text" class="form-control" rows="15" [(ngModel)]="article.text"></textarea>
     </div>
   
-    <button [disabled]="!updateForm.valid" type="submit" class="btn btn-primary">編集</button>
+    <button [disabled]="!updateForm.valid" type="submit" mat-raised-button color="primary">編集</button>
   </form>
   
-  <button class="btn btn-outline-primary">
-    <a [routerLink]="['/article']">記事一覧</a>
-  </button>
+  <a [routerLink]="['/article']">
+    <button mat-raised-button color="primary">記事一覧</button>
+  </a>
 </div>
