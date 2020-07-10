@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/movie']"><mat-icon>movie</mat-icon>Movie</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/random']" (click)="removeItem()"><mat-icon>movie</mat-icon>Random</a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/my-page']"><mat-icon>person</mat-icon>My Page</a>
         </li>
@@ -54,8 +57,11 @@
           <a class="nav-link" [routerLink]="['/map']"><mat-icon>map</mat-icon>Map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/movie']"><mat-icon>movie</mat-icon>Movie</a>
+          <a class="nav-link" [routerLink]="['/movie']" (click)="removeItem()"><mat-icon>movie</mat-icon>Movie</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/random']"><mat-icon>movie</mat-icon>Random</a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/admin']"><mat-icon>admin_panel_settings</mat-icon>管理者画面</a>
         </li>
@@ -91,6 +97,9 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/movie']" (click)="removeItem()"><mat-icon>movie</mat-icon>Movie</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/random']"><mat-icon>movie</mat-icon>Random</a>
+        </li> -->
       </ul>
     </div>
     <div>

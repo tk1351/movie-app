@@ -4,8 +4,14 @@ const Article = require('../model/article')
 const UserCtrl = require('../controllers/user')
 
 
+// router.get('', (req, res) => {
+//   Article.find({}, function(err, foundArticle) {
+//     return res.json(foundArticle)
+//   })
+// })
+
 router.get('', (req, res) => {
-  Article.find({}, function(err, foundArticle) {
+  Article.find({}, ['title', 'created'], { sort: { created: 1} }, function(err, foundArticle) {
     return res.json(foundArticle)
   })
 })

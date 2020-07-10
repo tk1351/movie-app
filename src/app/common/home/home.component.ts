@@ -31,4 +31,5 @@ export class HomeComponent implements OnInit {
       .subscribe(movies => this.movies= movies)
   }
 
+
 }

@@ -2,13 +2,13 @@
   <h3>映画検索</h3>
   <div>
     <form #query="ngForm" (ngSubmit)="search(query)">
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>映画名</mat-label>
         <input 
         matInput
-        ngModel 
-        name="queryParam" 
-        type="text" 
+        ngModel
+        name="queryParam"
+        type="text"
         [(ngModel)]="queryParam"
         required>
       </mat-form-field>
@@ -20,7 +20,7 @@
     <div *ngFor="let movie of movies.results" class="col-xs-3">
         <h6>{{movie.title}}</h6>
         <a routerLink="/detail/{{movie.id}}">
-          <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}">
+          <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'">
         </a>
         <h6>{{movie.release_date}}</h6>
       </div>

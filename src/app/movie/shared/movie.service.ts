@@ -18,9 +18,8 @@ export class MovieService {
   private API_KEY = 'b984f3182bc1e36977e4ee6caca2f7f7'
   private lang = 'ja-JA'
   private now_playing_url = 'https://api.themoviedb.org/3/movie/now_playing'
-  private credits_url = 'https://api.themoviedb.org/3/movie/'
+  private movie_url = 'https://api.themoviedb.org/3/movie/'
   private serach_url = 'https://api.themoviedb.org/3/search/movie'
-  private detail_url = 'https://api.themoviedb.org/3/movie/'
 
   constructor(
     private http: HttpClient
@@ -37,13 +36,20 @@ export class MovieService {
   }
 
   getDetail(id: number): Observable<Movie> {
-    const url = `${this.detail_url}${id}?api_key=${this.API_KEY}&language=${this.lang}`
+    const url = `${this.movie_url}${id}?api_key=${this.API_KEY}&language=${this.lang}`
     return this.http.get<Movie>(url)
   }
 
   getCredits(id: number): Observable<MovieCredits> {
-    const url = `${this.credits_url}${id}/credits?api_key=${this.API_KEY}`
+    const url = `${this.movie_url}${id}/credits?api_key=${this.API_KEY}`
     return this.http.get<MovieCredits>(url)
   }
+
+  getSimilar(id: number): Observable<Movies> {
+    const url = `${this.movie_url}${id}/similar?api_key=${this.API_KEY}&language=${this.lang}&page=1`
+    return this.http.get<Movies>(url)
+  }
+
+
 }
 

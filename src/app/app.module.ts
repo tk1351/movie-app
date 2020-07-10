@@ -8,7 +8,8 @@ import { HomeComponent } from './common/home/home.component';
 import { MapComponent } from './map/map.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component'
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatIconModule } from '@angular/material/icon'
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

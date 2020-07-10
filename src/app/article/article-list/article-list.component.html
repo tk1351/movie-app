@@ -2,13 +2,21 @@
   <h3>記事一覧</h3>
   <div>
     <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
-      <input ngModel name="queryParam" type="text" placeholder="記事を検索" required>
-      <button type="submit">検索</button>
+      <mat-form-field>
+        <mat-label>記事を検索</mat-label>
+        <input 
+        matInput
+        ngModel 
+        name="queryParam" 
+        type="text"
+        required>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">検索</button>
     </form>
   </div>
   <div>
     <ul class="list-group">
-      <li *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: page }" class="list-group-item">
+      <li *ngFor="let article of articles | paginate: { itemsPerPage: 5, currentPage: page }" class="list-group-item">
         <a [routerLink]="[article._id]">{{ article.title }}</a>
         <small class="d-flex w-100 justify-content-between">{{ article.created | date: "yyyy/MM/dd" }}</small>
       </li>

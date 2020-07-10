@@ -1,28 +1,55 @@
 <div class="container">
   <div *ngIf="movie">
     <h4>{{ movie.title }}</h4>
-    <img src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}">
+    <img src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'">
     <h4>{{ movie.overview }}</h4>
+  </div>
+  <div>
+    <h4>スタッフ</h4>
+  </div>
+  <div class="row row-20">
+    <div class="col-xs-4">
+      <h6>{{ director.name }}</h6>
+      <h6>{{ director.job }}</h6>
+      <img src="https://image.tmdb.org/t/p/w342{{director.profile_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'" width="200">
+    </div>
+    <div class="col-xs-4">
+      <h6>{{ screenplay.name }}</h6>
+      <h6>{{ screenplay.job }}</h6>
+      <img src="https://image.tmdb.org/t/p/w342{{screenplay.profile_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'" width="200">
+    </div>
+    <div class="col-xs-4">
+      <h6>{{ photography.name }}</h6>
+      <h6>{{ photography.job }}</h6>
+      <img src="https://image.tmdb.org/t/p/w342{{photography.profile_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'" width="200">
+    </div>
+    <div class="col-xs-4">
+      <h6>{{ producer.name }}</h6>
+      <h6>{{ producer.job }}</h6>
+      <img src="https://image.tmdb.org/t/p/w342{{producer.profile_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'" width="200">
+    </div>
   </div>
   <div>
     <h4>キャスト</h4>
   </div>
   <div class="row row-20">
     <div *ngFor="let cast of casts" class="col-xs-4">
-      <p>{{ cast.name }}</p>
-      <img src="https://image.tmdb.org/t/p/w342{{cast.profile_path}}" width="200">
+      <h6>{{ cast.name }}</h6>
+      <img src="https://image.tmdb.org/t/p/w342{{cast.profile_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'" width="200">
     </div>
   </div>
   <div>
-    <h4>スタッフ</h4>
+    <h4>近い映画</h4>
   </div>
   <div class="row row-20">
-    <div *ngFor="let crew of crews" class="col-xs-4">
-      <p>{{ crew.name }}</p>
-      <p>{{ crew.job }}</p>
-      <img src="https://image.tmdb.org/t/p/w342{{crew.profile_path}}" width="200">
+    <div *ngFor="let similarMovie of similarMovies" class="col-xs-4">
+      <h6>{{ similarMovie.title }}</h6>
+      <a routerLink="/detail/{{similarMovie.id}}">
+        <img src="https://image.tmdb.org/t/p/w300{{similarMovie.poster_path}}" onerror="this.onerror=null;this.src='../../assets/no_image_available.jpg'">
+      </a>
     </div>
   </div>
+  
   
   <div>
     <button mat-raised-button color="primary" (click)="goBack()">戻る</button>

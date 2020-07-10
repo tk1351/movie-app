@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../shared/movie.service';
 import { Movie } from './movie';
 import { ActivatedRoute } from '@angular/router';
-import { Movies } from '../movie-list/movies';
+import { Movies, MovieResults } from '../movie-list/movies';
 import { Location } from '@angular/common';
 import { MovieCast, MovieCrew } from './movie.credits';
 
@@ -17,6 +17,12 @@ export class MovieDetailComponent implements OnInit {
   movies: Movies
   casts: MovieCast[]
   crews: MovieCrew[]
+  similarMovies: MovieResults[]
+
+  director
+  screenplay
+  photography
+  producer
 
   constructor(
     private route: ActivatedRoute,
@@ -46,8 +52,26 @@ export class MovieDetailComponent implements OnInit {
 
       creditsObservable.subscribe(
         (data) => {
-          this.crews = data.crew.slice(0, 4)
+          this.crews = data.crew
           this.casts = data.cast.slice(0, 4)
+ 
+          this.director = this.crews.filter(crew => crew.job === 'Director')[0]
+          this.screenplay = this.crews.filter(crew => crew.job === 'Screenplay')[0]
+          this.photography = this.crews.filter(crew => crew.job === 'Director of Photography')[0]
+          this.producer = this.crews.filter(crew => crew.job === 'Producer')[0]
+
+        },
+        (err) => {
+          console.log(err)
+        }
+      )
+
+      const similarObservable = this.movieService.getSimilar(id)
+
+      similarObservable.subscribe(
+        (data) => {
+          this.similarMovies = data.results
+          console.log(this.similarMovies)
         },
         (err) => {
           console.log(err)
