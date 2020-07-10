@@ -10,7 +10,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { MovieRandomComponent } from './movie-random/movie-random.component'
 
 const routes: Routes = [
   { path: 'movie', component: MovieComponent, 
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: '', component: MovieSearchComponent  }
     ]
   },
-  { path: 'detail/:id', component: MovieDetailComponent }
+  { path: 'detail/:id', component: MovieDetailComponent },
+  { path: 'random', component: MovieRandomComponent }
 ]
 
 @NgModule({
@@ -26,7 +28,8 @@ const routes: Routes = [
     MovieComponent,
     MovieListComponent,
     MovieDetailComponent,
-    MovieSearchComponent
+    MovieSearchComponent,
+    MovieRandomComponent
   ],
   imports: [
     RouterModule.forChild(routes),

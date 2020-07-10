@@ -5,10 +5,12 @@ import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './common/home/home.component';
 import { MapModule } from './map/map.module'
 import { MovieModule } from './movie/movie.module';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

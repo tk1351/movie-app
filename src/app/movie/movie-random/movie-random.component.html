@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>Random</h3>
+  <div>
+    <h6>{{movie.title}}</h6>
+    <a routerLink="/detail/{{movie.id}}">
+      <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}">
+    </a>
+    <h6>{{movie.release_date}}</h6>
+  </div>
+  <button mat-raised-button color="primary" (click)="getRandom(page)">クリック</button>
+</div>
