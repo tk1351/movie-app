@@ -1,14 +1,19 @@
 # MovieApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+映画情報を確認したり、映画批評等の記事を投稿できるWebページです。
 
-## Development server
+## 使い方
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Home: 海外で上映されている映画の一覧が表示されます（国内の上映情報へ変更予定）、画像をクリックすると詳細情報を確認できます。  
+Article: 記事を閲覧できます。  
+Map: 東京の映画館のHPへすぐに飛ぶことができます。 
+Movie: 映画名から情報を検索できます。
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ログイン方法
+
+管理者：Email:test@test Password:test  
+ユーザー：Email:editor@editor Password:editor
 
 ## Build
 
