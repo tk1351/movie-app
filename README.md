@@ -1,6 +1,7 @@
 # MovieApp
 
-映画情報を確認したり、映画批評等の記事を投稿できるWebページです。
+映画情報を確認したり、映画批評等の記事を投稿できるWebページです。  
+ログインをしなくてもご利用いただけます。
 
 ## 使い方
 
@@ -15,18 +16,10 @@ Movie: 映画名から情報を検索できます。
 管理者：Email:test@test Password:test  
 ユーザー：Email:editor@editor Password:editor
 
-## Build
+## 管理者権限
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ユーザー新規登録、削除ができます。
 
-## Running unit tests
+## ユーザー権限
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+記事の投稿、更新、削除ができます。
