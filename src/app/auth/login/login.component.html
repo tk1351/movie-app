@@ -1,39 +1,52 @@
 <div class="container">
-  <h3>Login</h3>
+  <h1>LOGIN</h1>
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="form-group">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="full-width-field">
         <mat-label>Email</mat-label>
-        <input 
-        matInput 
-        ngModel
-        name="email"
-        type="text"
-        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-        class="form-control"
-        aria-describedby="emailHelp"
-        required>
+        <input
+          matInput
+          ngModel
+          name="email"
+          type="text"
+          pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+          class="form-control"
+          aria-describedby="emailHelp"
+          required
+        />
       </mat-form-field>
     </div>
-    
     <div class="form-group">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="full-width-field">
         <mat-label>パスワード</mat-label>
-        <input 
-        matInput 
-        ngModel
-        name="password"
-        [type]="hide ? 'password' : 'text'"
-        class="form-control"
-        required>
+        <input
+          matInput
+          ngModel
+          name="password"
+          [type]="hide ? 'password' : 'text'"
+          class="form-control"
+          required
+        />
       </mat-form-field>
     </div>
-  
-    <button [disabled]="!loginForm.valid" mat-raised-button color="primary" type="submit" class="btn btn-primary">Login</button>
+    <div class="button-wrapper">
+      <button
+        [disabled]="!loginForm.valid"
+        mat-raised-button
+        color="secondary"
+        type="submit"
+        class="btn btn-primary"
+      >
+        LOGIN
+      </button>
+    </div>
   </form>
-  <br>
-  <div *ngIf="errors && errors.length>0"
-    class="alert alert-danger" role="alert">
+  <br />
+  <div
+    *ngIf="errors && errors.length > 0"
+    class="alert alert-danger"
+    role="alert"
+  >
     <p *ngFor="let error of errors">{{ error.detail }}</p>
   </div>
 </div>
