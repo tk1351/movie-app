@@ -1,10 +1,12 @@
 <ng-container>
   <div class="container">
-    <p>{{ article.created | date: "yyyy/MM/dd" }} by {{ username }}</p>
     <h2>{{ article.title }}</h2>
-    <p>{{ article.text }}</p>
-    <a [routerLink]="['/article']">
-      <button mat-raised-button color="primary">記事一覧</button>
+    <span>{{ article.created | date: "yyyy/MM/dd" }} by {{ username }}</span>
+    <p class="text">{{ article.text }}</p>
+    <a [routerLink]="['/article']" class="btn">
+      <button mat-raised-button color="secondary" class="btn btn-primary">
+        記事一覧
+      </button>
     </a>
   </div>
 </ng-container>

@@ -1,23 +1,30 @@
 <ng-container *ngIf="auth.isAuthenticated() && auth.isSystemAdmin()">
   <div class="container">
-    <h3>ユーザー一覧</h3>
+    <h1>ユーザー一覧</h1>
     <div>
+      <div>
+        <a routerLink="/register">
+          <button mat-raised-button color="secondary" class="btn btn-primary">
+            新規登録
+          </button>
+        </a>
+      </div>
       <ul class="list-group">
         <li *ngFor="let user of users" class="list-group-item">
-          <p>ユーザー名：{{ user.username }}</p>
+          <p class="user-name">ユーザー名：{{ user.username }}</p>
           <small class="d-flex w-100 justify-content-between">
             <a [routerLink]="[user._id]" class="ml-auto">
-              <button mat-raised-button color="primary">削除</button>
+              <button
+                mat-raised-button
+                color="secondary"
+                class="btn btn-primary"
+              >
+                削除
+              </button>
             </a>
           </small>
         </li>
       </ul>
-    </div>
-  
-    <div>
-      <a routerLink="/register">
-        <button mat-raised-button color="primary">新規登録</button>
-      </a>
     </div>
   </div>
 </ng-container>
