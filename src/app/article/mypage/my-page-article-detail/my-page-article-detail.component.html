@@ -1,18 +1,31 @@
 <ng-container>
   <div class="container">
-    <h3>記事詳細</h3>
+    <h1>記事詳細</h1>
     <!-- <p>投稿者：{{ username }}</p> -->
     <p>{{ article.created | date: "yyyy/MM/dd" }}</p>
-    <p>{{ article.title }}</p>
-    <p>{{ article.text }}</p>
-    <a [routerLink]="['/my-page']">
-      <button mat-raised-button color="primary">戻る</button>
-    </a>
-    <ng-container *ngIf="auth.isAuthenticated()">
-      <a routerLink="/update-form/{{article._id}}">
-        <button mat-raised-button color="primary">編集</button>
+    <h2>{{ article.title }}</h2>
+    <p class="text">{{ article.text }}</p>
+    <div class="btn-container">
+      <a [routerLink]="['/my-page']">
+        <button mat-raised-button color="secondary" class="btn btn-primary">
+          戻る
+        </button>
       </a>
-      <button (click)="delete()" mat-raised-button color="primary">削除</button>
-    </ng-container>
+      <ng-container *ngIf="auth.isAuthenticated()">
+        <a routerLink="/update-form/{{ article._id }}">
+          <button mat-raised-button color="secondary" class="btn btn-primary">
+            編集
+          </button>
+        </a>
+        <button
+          (click)="delete()"
+          mat-raised-button
+          color="secondary"
+          class="btn btn-primary"
+        >
+          削除
+        </button>
+      </ng-container>
+    </div>
   </div>
 </ng-container>

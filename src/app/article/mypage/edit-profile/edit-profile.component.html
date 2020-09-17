@@ -1,33 +1,41 @@
 <div class="container">
-  <h3>ユーザー情報変更</h3>
+  <h1>ユーザー情報変更</h1>
   <form #editForm="ngForm" (ngSubmit)="put(editForm)">
     <div>
       <mat-form-field appearance="fill">
         <mat-label>ユーザー名</mat-label>
-        <input 
-        matInput
-        ngModel 
-        name="username" 
-        type="text" 
-        class="form-control" 
-        [(ngModel)]="user.username">
+        <input
+          matInput
+          ngModel
+          name="username"
+          type="text"
+          class="form-control"
+          [(ngModel)]="user.username"
+        />
       </mat-form-field>
     </div>
-    
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input 
-        matInput
-        ngModel 
-        name="email" 
-        type="text" 
-        class="form-control" 
-        [(ngModel)]="user.email">
+        <input
+          matInput
+          ngModel
+          name="email"
+          type="text"
+          class="form-control"
+          [(ngModel)]="user.email"
+        />
       </mat-form-field>
     </div>
-
-    <button type="submit" class="btn btn-primary" mat-raised-button color="primary">変更</button>
+    <div class="edit-btn">
+      <button
+        type="submit"
+        class="btn btn-secondary"
+        mat-raised-button
+        color="secondary"
+      >
+        変更
+      </button>
+    </div>
   </form>
-
 </div>
