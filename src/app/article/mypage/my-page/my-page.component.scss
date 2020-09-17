@@ -1,0 +1,24 @@
+.container {
+  width: 70%;
+}
+
+.container h1 {
+  margin: 50px auto;
+  border-left: solid 5px rgb(83, 69, 43);
+  padding-left: 7px;
+  font-family: "Poppins", "Noto Sans JP";
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.list-group-item {
+  font-size: 18px;
+  display: inline-block;
+  height: 80px;
+}
+
+.article-title {
+  margin: 5px auto 10px;
+  display: inline-block;
+  color: #333333;
+}

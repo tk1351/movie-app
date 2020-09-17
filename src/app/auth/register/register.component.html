@@ -5,70 +5,84 @@
       <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>ユーザー名</mat-label>
-          <input 
-          matInput
-          ngModel 
-          name="username" 
-          type="text" 
-          placeholder="ユーザー名" 
-          class="form-control"
-          required>
+          <input
+            matInput
+            ngModel
+            name="username"
+            type="text"
+            placeholder="ユーザー名"
+            class="form-control"
+            required
+          />
         </mat-form-field>
       </div>
-    
+
       <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
-          <input 
-          matInput
-          ngModel 
-          name="email"
-          type="text" 
-          placeholder="movie@example.com"
-          pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-          class="form-control"
-          aria-describedby="emailHelp"
-          required>
+          <input
+            matInput
+            ngModel
+            name="email"
+            type="text"
+            placeholder="movie@example.com"
+            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+            class="form-control"
+            aria-describedby="emailHelp"
+            required
+          />
         </mat-form-field>
       </div>
-      
+
       <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>パスワード</mat-label>
-          <input 
-          matInput
-          ngModel
-          name="password"
-          [type]="hide ? 'password' : 'text'" 
-          placeholder="パスワード"
-          class="form-control"
-          required>
+          <input
+            matInput
+            ngModel
+            name="password"
+            [type]="hide ? 'password' : 'text'"
+            placeholder="パスワード"
+            class="form-control"
+            required
+          />
         </mat-form-field>
       </div>
-    
+
       <div class="form-group">
         <mat-form-field appearance="fill">
           <mat-label>パスワード（確認用）</mat-label>
-          <input 
-          matInput
-          ngModel
-          name="confirmPassword"
-          [type]="hide ? 'password' : 'text'" 
-          placeholder="パスワード（確認用）"
-          class="form-control"
-          required>
+          <input
+            matInput
+            ngModel
+            name="confirmPassword"
+            [type]="hide ? 'password' : 'text'"
+            placeholder="パスワード（確認用）"
+            class="form-control"
+            required
+          />
         </mat-form-field>
       </div>
-    
+
       <div>
-        <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary">登録</button>
+        <button
+          [disabled]="!registerForm.valid"
+          type="submit"
+          mat-raised-button
+          color="secondary"
+          class="btn btn-primary"
+        >
+          登録
+        </button>
       </div>
-    
     </form>
-    <br>
-    <div *ngIf="errors && errors.length>0"
-      class="alert alert-danger" role="alert">
-    <p *ngFor="let error of errors">{{ error.detail }}</p>
+    <br />
+    <div
+      *ngIf="errors && errors.length > 0"
+      class="alert alert-danger"
+      role="alert"
+    >
+      <p *ngFor="let error of errors">{{ error.detail }}</p>
     </div>
   </div>
 </ng-container>

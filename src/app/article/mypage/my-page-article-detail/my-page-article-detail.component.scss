@@ -1,3 +1,26 @@
 p {
   white-space: pre-wrap;
 }
+
+.container {
+  width: 70%;
+}
+
+.container h1 {
+  margin: 50px 40px 50px 0;
+  border-left: solid 5px rgb(83, 69, 43);
+  padding-left: 7px;
+  font-family: "Noto Sans JP";
+  letter-spacing: 1px;
+  font-weight: 900;
+  display: inline-block;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.btn-container {
+  margin: 50px auto;
+}
