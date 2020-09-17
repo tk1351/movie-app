@@ -1,9 +1,48 @@
-.row-20{
-  margin-left:-10px;
-  margin-right:-10px;
+.row-20 {
+  margin-left: -10px;
+  margin-right: -10px;
 
-  > div{
-      padding-right:10px;
-      padding-left:10px;
+  > div {
+    padding-right: 10px;
+    padding-left: 10px;
   }
+}
+
+.container {
+  width: 70%;
+}
+
+.container h1 {
+  margin: 50px auto;
+  border-left: solid 5px rgb(83, 69, 43);
+  padding-left: 7px;
+  font-family: "Poppins", "Noto Sans JP";
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.container h3 {
+  font-family: "Poppins", "Noto Sans JP";
+}
+.container h2 {
+  font-family: "Poppins", "Noto Sans JP";
+}
+
+.movie-info {
+  display: flex;
+}
+
+.movie-overview {
+  font-size: 20px;
+  font-family: "Poppins";
+  line-height: 1.8;
+  margin: 0 20px;
+}
+
+.movie-title {
+  margin-top: 50px;
+}
+
+.back-btn {
+  margin: 50px auto 100px;
 }
