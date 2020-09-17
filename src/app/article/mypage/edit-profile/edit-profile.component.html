@@ -30,12 +30,17 @@
     <div class="edit-btn">
       <button
         type="submit"
-        class="btn btn-secondary"
+        class="btn btn-primary"
         mat-raised-button
         color="secondary"
       >
         変更
       </button>
+      <a [routerLink]="['/my-page']">
+        <button mat-raised-button color="secondary" class="btn btn-primary">
+          戻る
+        </button>
+      </a>
     </div>
   </form>
 </div>
